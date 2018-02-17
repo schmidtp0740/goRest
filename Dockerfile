@@ -1,5 +1,6 @@
 FROM golang:stretch
-WORKDIR /usr/app/src
+WORKDIR /usr/src/app
 COPY . .
-CMD ["go","run","main.go"]
+RUN go get github.com/gorilla/mux && go build main.go
+CMD ["./main"]
 
